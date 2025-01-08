@@ -4,10 +4,20 @@ const dotenv = require('dotenv');
 const bcrypt = require('bcryptjs');
 const bodyParser = require('body-parser');
 const userRoutes = require('./routes/userRoutes');
+const cors = require("cors");
 
 dotenv.config();
 
 const app = express();
+
+const corsOptions = {
+    origin: 'http://localhost:8080', // Replace this with your frontend URL
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS','PATCH'], // Allowed methods
+    allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers
+};
+
+app.use(cors(corsOptions));
+
 app.use(bodyParser.json());
 
 // Connect to MongoDB
