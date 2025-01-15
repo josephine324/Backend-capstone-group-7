@@ -20,13 +20,24 @@ app.use(cors(corsOptions));
 
 app.use(bodyParser.json());
 
+const jwtSecret = process.env.JWT_SECRET;
+
+if (!jwtSecret) {
+    console.error("JWT_SECRET is not defined in the .env file");
+    process.exit(1); // Exit the application if the key is missing
+}
 // Connect to MongoDB
-mongoose.connect(process.env.MONGO_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-})
-.then(() => console.log('Connected to MongoDB'))
-.catch((err) => console.error('Database connection error:', err));
+const mongoUrl = process.env.MONGO_URI;
+
+if (!mongoUrl) {
+    console.error("MONGO_URL is not defined in your .env file");
+    process.exit(1);
+}
+
+mongoose
+    .connect(mongoUrl) // No need to pass options for Mongoose >= v6
+    .then(() => console.log("Connected to MongoDB"))
+    .catch((error) => console.error("Database connection error:", error));
 
 // User routes
 app.use('/api/users', userRoutes);
