@@ -11,7 +11,7 @@ dotenv.config();
 const app = express();
 
 const corsOptions = {
-    origin: 'http://localhost:8080/html.html', // Replace this with your frontend URL
+    origin: 'https://techgiant0.github.io/QuickNest/', // Replace this with your frontend URL
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS','PATCH'], // Allowed methods
     allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers
 };
