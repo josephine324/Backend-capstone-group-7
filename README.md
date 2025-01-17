@@ -1,1 +1,1 @@
-Login and SSignup API's
+Login and Signup API's
