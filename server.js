@@ -9,14 +9,15 @@ const cors = require("cors");
 dotenv.config();
 
 const app = express();
-app.use(cors(corsOptions));
+
 app.use(bodyParser.json());
 
 const corsOptions = {
-    origin: 'https://techgiant0.github.io/QuickNest/', // Replace this with your frontend URL
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS','PATCH'], // Allowed methods
-    allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers
+    origin: 'https://techgiant0.github.io/QuickNest/',
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS','PATCH'], 
+    allowedHeaders: ['Content-Type', 'Authorization'],
 };
+app.use(cors(corsOptions));
 
 
 const jwtSecret = process.env.JWT_SECRET;
