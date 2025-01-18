@@ -12,11 +12,7 @@ const app = express();
 
 app.use(bodyParser.json());
 
-const corsOptions = {
-    origin: 'https://techgiant0.github.io/QuickNest/',
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS','PATCH'], 
-    allowedHeaders: ['Content-Type', 'Authorization'],
-};
+
 app.use(cors());
 
 
