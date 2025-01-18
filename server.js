@@ -17,7 +17,7 @@ const corsOptions = {
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS','PATCH'], 
     allowedHeaders: ['Content-Type', 'Authorization'],
 };
-app.use(cors(corsOptions));
+app.use(cors());
 
 
 const jwtSecret = process.env.JWT_SECRET;
